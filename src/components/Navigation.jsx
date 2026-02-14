@@ -18,16 +18,10 @@ function Navigation() {
             Home
           </Link>
           <Link 
-            to="/email-relay" 
-            className={`nav-link ${location.pathname === '/email-relay' ? 'active' : ''}`}
+            to="/admin" 
+            className={`nav-link ${location.pathname === '/admin' ? 'active' : ''}`}
           >
-            Email Relay
-          </Link>
-          <Link 
-            to="/llm-search" 
-            className={`nav-link ${location.pathname === '/llm-search' ? 'active' : ''}`}
-          >
-            LLM Search
+            Manage Projects
           </Link>
         </div>
       </div>

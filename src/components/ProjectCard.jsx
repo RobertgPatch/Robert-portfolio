@@ -1,19 +1,19 @@
 import { Link } from 'react-router-dom'
 import './ProjectCard.css'
 
-function ProjectCard({ title, description, icon, path, tags }) {
+function ProjectCard({ project }) {
   return (
-    <Link to={path} className="project-card">
-      <div className="card-icon">{icon}</div>
-      <h3 className="card-title">{title}</h3>
-      <p className="card-description">{description}</p>
+    <Link to={`/project/${project.id}`} className="project-card">
+      <div className="card-icon">{project.icon}</div>
+      <h3 className="card-title">{project.title}</h3>
+      <p className="card-description">{project.description}</p>
       <div className="card-tags">
-        {tags.map((tag, index) => (
+        {project.tags.map((tag, index) => (
           <span key={index} className="tag">{tag}</span>
         ))}
       </div>
       <div className="card-footer">
-        <span className="view-demo">View Demo →</span>
+        <span className="view-demo">View Details →</span>
       </div>
     </Link>
   )
