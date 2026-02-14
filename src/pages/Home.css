@@ -1,0 +1,145 @@
+.home {
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+  border-radius: 1rem;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.projects-section {
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--text);
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 2px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.about-section {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 3rem;
+  margin-bottom: 3rem;
+}
+
+.about-content {
+  max-width: 800px;
+}
+
+.about-content p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.about-content p:last-child {
+  margin-bottom: 0;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about-section {
+    padding: 2rem;
+  }
+
+  .about-content p {
+    font-size: 1rem;
+  }
+}

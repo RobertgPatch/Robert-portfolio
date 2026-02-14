@@ -1,0 +1,246 @@
+.project-detail {
+  animation: fadeIn 0.6s ease-in;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.back-link {
+  display: inline-block;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  transition: transform 0.3s;
+}
+
+.back-link:hover {
+  transform: translateX(-5px);
+}
+
+.not-found {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.not-found h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-header {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+
+.project-icon-large {
+  font-size: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+  flex-shrink: 0;
+}
+
+.project-header-content {
+  flex: 1;
+}
+
+.project-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.project-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  padding: 0.25rem 0.75rem;
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--primary);
+}
+
+.project-status {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 0.5rem;
+  color: var(--secondary);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.project-link-button {
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-link-button.primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+}
+
+.project-link-button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(37, 99, 235, 0.4);
+}
+
+.project-link-button.secondary {
+  background: transparent;
+  border: 2px solid var(--border);
+  color: var(--text);
+}
+
+.project-link-button.secondary:hover {
+  border-color: var(--primary);
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.project-section {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.project-section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.project-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 2px;
+}
+
+.project-section p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+}
+
+.features-list li {
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  color: var(--text-secondary);
+  position: relative;
+  padding-left: 2.5rem;
+  line-height: 1.6;
+}
+
+.features-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 1rem;
+  color: var(--secondary);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.technologies {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.technology {
+  padding: 0.5rem 1rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 0.5rem;
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .project-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .project-title {
+    font-size: 2rem;
+  }
+
+  .project-links {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .project-link-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .project-section {
+    padding: 1.5rem;
+  }
+}

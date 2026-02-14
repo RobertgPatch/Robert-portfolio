@@ -1,0 +1,95 @@
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.project-card:hover::before {
+  transform: scaleX(1);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
+  border-color: var(--primary);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.card-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.card-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  padding: 0.25rem 0.75rem;
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--primary);
+}
+
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.view-demo {
+  color: var(--primary);
+  font-weight: 600;
+  transition: transform 0.3s;
+  display: inline-block;
+}
+
+.project-card:hover .view-demo {
+  transform: translateX(5px);
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "email-relay",
+    "title": "Email Relay System",
+    "description": "A robust and scalable email relay system that handles high-volume email traffic with advanced routing, queuing, and delivery tracking capabilities.",
+    "icon": "📧",
+    "tags": ["Email", "Backend", "Real-time", "Scalable"],
+    "liveUrl": "",
+    "githubUrl": "",
+    "status": "completed",
+    "featured": true,
+    "details": {
+      "overview": "A high-performance email relay system designed to handle thousands of emails per minute with intelligent routing and real-time tracking.",
+      "keyFeatures": [
+        "High-volume email processing with optimized queue management",
+        "Smart routing based on domain, priority, and delivery requirements",
+        "Real-time delivery tracking and status monitoring",
+        "Industry-standard security with encryption and authentication"
+      ],
+      "technologies": ["Node.js", "Redis", "PostgreSQL", "SMTP"],
+      "challenges": "Handling high concurrency while maintaining delivery guarantees and implementing retry logic for failed deliveries."
+    }
+  },
+  {
+    "id": "llm-file-search",
+    "title": "Private LLM File Search",
+    "description": "An intelligent file search interface powered by Large Language Models, enabling natural language queries across private document collections with advanced context understanding.",
+    "icon": "🔍",
+    "tags": ["AI", "LLM", "Search", "Privacy"],
+    "liveUrl": "",
+    "githubUrl": "",
+    "status": "completed",
+    "featured": true,
+    "details": {
+      "overview": "An AI-powered file search system that allows users to search through private documents using natural language, providing semantic search capabilities with complete privacy.",
+      "keyFeatures": [
+        "Natural language query understanding using LLM technology",
+        "Private and secure - all data processing happens locally",
+        "Semantic search that finds content based on meaning, not just keywords",
+        "Fast indexing and retrieval across large document collections"
+      ],
+      "technologies": ["Python", "OpenAI API", "Vector Database", "React"],
+      "challenges": "Balancing search accuracy with privacy requirements and optimizing vector search performance for large document sets."
+    }
+  }
+]
