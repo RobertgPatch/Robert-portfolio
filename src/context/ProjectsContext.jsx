@@ -19,8 +19,7 @@ export function ProjectsProvider({ children }) {
   const addProject = (project) => {
     const newProject = {
       ...project,
-      id: project.title.toLowerCase().replace(/\s+/g, '-'),
-      featured: false
+      id: project.title.toLowerCase().replace(/\s+/g, '-')
     }
     const updatedProjects = [...projects, newProject]
     setProjects(updatedProjects)
