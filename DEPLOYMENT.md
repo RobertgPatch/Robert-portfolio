@@ -3,25 +3,36 @@
 ## Quick Answer
 **Your portfolio will be accessible at:** https://robertgpatch.github.io/Robert-portfolio/
 
-## Steps to Make It Live
+## ⚠️ IMPORTANT: First-Time Setup Required
 
-### Option 1: Merge This PR (Recommended)
-1. Merge this pull request into the `main` branch
-2. The GitHub Actions workflow will automatically build and deploy
-3. Visit https://robertgpatch.github.io/Robert-portfolio/ in 2-3 minutes
-
-### Option 2: Enable GitHub Pages Manually
-If you want to deploy from this branch right now:
+**Before deploying, you must enable GitHub Pages:**
 
 1. Go to your repository: https://github.com/RobertgPatch/Robert-portfolio
 2. Click **Settings** → **Pages** (in the left sidebar)
 3. Under "Build and deployment":
-   - Source: Select **GitHub Actions**
-4. Go to **Actions** tab
-5. Click on "Deploy to GitHub Pages" workflow
-6. Click **Run workflow** → Select branch `copilot/create-portfolio-showcase-app`
-7. Wait 2-3 minutes for deployment
-8. Visit: https://robertgpatch.github.io/Robert-portfolio/
+   - **Source**: Select **GitHub Actions** (NOT "Deploy from a branch")
+4. Click **Save**
+
+Once Pages is enabled, you can deploy using either option below.
+
+## Steps to Make It Live
+
+### Option 1: Merge This PR (Recommended)
+1. **Enable GitHub Pages first** (see above if not done)
+2. Merge this pull request into the `main` branch
+3. The GitHub Actions workflow will automatically build and deploy
+4. Visit https://robertgpatch.github.io/Robert-portfolio/ in 2-3 minutes
+
+### Option 2: Enable GitHub Pages Manually
+If you want to deploy from this branch right now:
+
+1. **Enable GitHub Pages first** (see instructions above if not done)
+2. Go to your repository: https://github.com/RobertgPatch/Robert-portfolio
+3. Go to **Actions** tab
+4. Click on "Deploy to GitHub Pages" workflow
+5. Click **Run workflow** → Select your current branch
+6. Wait 2-3 minutes for deployment
+7. Visit: https://robertgpatch.github.io/Robert-portfolio/
 
 ## What Was Set Up
 
