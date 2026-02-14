@@ -2,6 +2,8 @@
 
 A modern, interactive portfolio website for showcasing software development projects with an integrated management system.
 
+🌐 **[View Live Demo](https://robertgpatch.github.io/Robert-portfolio/)**
+
 ## Overview
 
 This portfolio website is built with React and Vite, featuring a clean, modern design with smooth animations and responsive layouts. It includes a complete project management system that allows you to add, edit, and showcase your projects dynamically.
@@ -148,6 +150,12 @@ Each project follows this structure:
 
 ## Deployment
 
+This project is automatically deployed to GitHub Pages when changes are pushed to the `main` branch.
+
+**Live URL:** https://robertgpatch.github.io/Robert-portfolio/
+
+### Manual Deployment
+
 To build for production:
 
 ```bash
@@ -155,6 +163,14 @@ npm run build
 ```
 
 The build artifacts will be stored in the `dist/` directory, ready to be deployed to any static hosting service (Netlify, Vercel, GitHub Pages, etc.).
+
+### GitHub Pages Setup
+
+The repository includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) that automatically builds and deploys to GitHub Pages on every push to main. To enable:
+
+1. Go to repository Settings → Pages
+2. Set Source to "GitHub Actions"
+3. The workflow will automatically deploy on the next push
 
 ## Example Projects Included
 
