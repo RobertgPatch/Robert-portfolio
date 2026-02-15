@@ -9,7 +9,7 @@ import Navigation from './components/Navigation'
 function App() {
   return (
     <ProjectsProvider>
-      <Router>
+      <Router basename="/Robert-portfolio">
         <div className="app">
           <Navigation />
           <div className="content">
