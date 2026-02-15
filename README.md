@@ -95,11 +95,21 @@ Access the project management interface by clicking "Manage Projects" in the nav
 
 #### Authentication
 - **Default Password**: `admin123`
-- **Login**: Navigate to `/admin` or click "Manage Projects" to be prompted for the password
+- **Login**: Click "View Projects" in the navigation menu or navigate directly to `/admin` (viewable by all) and click the "Login to Edit" button to access edit controls
 - **Logout**: Click the "Logout" button in the admin interface to end your session
 - **Session Persistence**: Your login is saved in the browser until you logout
+- **Read-Only Access**: Non-authenticated users can view all projects in the admin page but cannot add, edit, or delete projects
 
 **Security Note**: This is a client-side authentication system suitable for personal portfolios. The password is checked client-side and stored in the source code. For production applications with sensitive data, implement proper server-side authentication.
+
+**Production Deployment Recommendations**:
+- This authentication is suitable for public portfolios where you want to prevent casual editing
+- NOT suitable for sensitive data or applications requiring real security
+- For better security, consider:
+  - Server-side authentication with JWT tokens
+  - OAuth providers (Google, GitHub)
+  - Backend API with proper user management
+  - Database-backed authentication systems
 
 #### Admin Features
 1. **Add New Project**: Click "+ Add New Project" and fill in the form with:
@@ -121,17 +131,20 @@ All project data is stored in the browser's localStorage, so your changes persis
 ## Customization
 
 ### Changing the Admin Password
-To change the admin password, edit the `ADMIN_PASSWORD` constant in `src/context/AuthContext.jsx`:
+To change the admin password, use an environment variable for better security:
 
-```javascript
-// Admin password - in production, this should be an environment variable
-const ADMIN_PASSWORD = 'your-secure-password'
+1. Create a `.env` file in the root directory:
+```env
+VITE_ADMIN_PASSWORD=your-secure-password
 ```
 
-For better security, consider using environment variables:
-1. Create a `.env` file in the root directory
-2. Add `VITE_ADMIN_PASSWORD=your-password`
-3. Update AuthContext.jsx to use `import.meta.env.VITE_ADMIN_PASSWORD`
+2. The AuthContext.jsx already supports this - it will use `VITE_ADMIN_PASSWORD` from your environment if available
+
+3. Add `.env` to your `.gitignore` to prevent committing secrets
+
+**Alternative (Less Secure)**: You can also edit the `ADMIN_PASSWORD` fallback value in `src/context/AuthContext.jsx`, but this will be visible in your source code.
+
+**Important**: Even with environment variables, client-side authentication can be bypassed by examining the built JavaScript. This approach is only suitable for portfolios where the worst case is unauthorized content edits, not for protecting sensitive data.
 
 ### Adding Initial Projects
 Edit `src/data/projects.json` to change the default projects that appear on first load.
