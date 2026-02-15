@@ -1,9 +1,13 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useProjects } from '../context/ProjectsContext'
+import { useAuth } from '../context/AuthContext'
 import './Admin.css'
 
 function Admin() {
   const { projects, addProject, updateProject, deleteProject } = useProjects()
+  const { logout } = useAuth()
+  const navigate = useNavigate()
   const [isAdding, setIsAdding] = useState(false)
   const [editingId, setEditingId] = useState(null)
   const [formData, setFormData] = useState({
@@ -100,11 +104,21 @@ function Admin() {
     }
   }
 
+  const handleLogout = () => {
+    logout()
+    navigate('/')
+  }
+
   return (
     <div className="admin">
       <div className="admin-header">
-        <h1>Manage Projects</h1>
-        <p className="admin-description">Add, edit, or remove projects from your portfolio</p>
+        <div>
+          <h1>Manage Projects</h1>
+          <p className="admin-description">Add, edit, or remove projects from your portfolio</p>
+        </div>
+        <button className="btn btn-logout" onClick={handleLogout}>
+          Logout
+        </button>
       </div>
 
       {!isAdding && (

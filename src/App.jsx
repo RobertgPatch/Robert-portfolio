@@ -1,27 +1,40 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 import { ProjectsProvider } from './context/ProjectsContext'
+import { AuthProvider } from './context/AuthContext'
 import Home from './pages/Home'
 import ProjectDetail from './pages/ProjectDetail'
 import Admin from './pages/Admin'
+import Login from './pages/Login'
 import Navigation from './components/Navigation'
+import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
   return (
-    <ProjectsProvider>
-      <Router basename="/Robert-portfolio">
-        <div className="app">
-          <Navigation />
-          <div className="content">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/project/:id" element={<ProjectDetail />} />
-              <Route path="/admin" element={<Admin />} />
-            </Routes>
+    <AuthProvider>
+      <ProjectsProvider>
+        <Router basename="/Robert-portfolio">
+          <div className="app">
+            <Navigation />
+            <div className="content">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/project/:id" element={<ProjectDetail />} />
+                <Route path="/login" element={<Login />} />
+                <Route 
+                  path="/admin" 
+                  element={
+                    <ProtectedRoute>
+                      <Admin />
+                    </ProtectedRoute>
+                  } 
+                />
+              </Routes>
+            </div>
           </div>
-        </div>
-      </Router>
-    </ProjectsProvider>
+        </Router>
+      </ProjectsProvider>
+    </AuthProvider>
   )
 }
 
