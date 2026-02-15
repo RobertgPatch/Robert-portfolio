@@ -15,6 +15,7 @@ This portfolio website is built with React and Vite, featuring a clean, modern d
 - ⚡ Fast performance with Vite
 - 🧭 Client-side routing with React Router
 - 📝 Built-in project management system
+- 🔒 Password-protected admin interface
 - 💾 Local storage persistence
 - 🎯 Featured project highlighting
 - 💫 Smooth animations and transitions
@@ -59,15 +60,18 @@ npm run dev
 src/
 ├── components/          # Reusable React components
 │   ├── Navigation.jsx   # Main navigation bar
-│   └── ProjectCard.jsx  # Project showcase cards
+│   ├── ProjectCard.jsx  # Project showcase cards
+│   └── ProtectedRoute.jsx  # Route guard for admin access
 ├── context/            # React Context providers
-│   └── ProjectsContext.jsx  # Project state management
+│   ├── ProjectsContext.jsx  # Project state management
+│   └── AuthContext.jsx  # Authentication state management
 ├── data/               # Data files
 │   └── projects.json   # Default projects data
 ├── pages/              # Page components
 │   ├── Home.jsx        # Landing page with project showcase
 │   ├── ProjectDetail.jsx  # Individual project details
-│   └── Admin.jsx       # Project management interface
+│   ├── Admin.jsx       # Project management interface
+│   └── Login.jsx       # Admin login page
 ├── App.jsx             # Main app component with routing
 ├── index.css           # Global styles
 └── main.jsx           # App entry point
@@ -87,8 +91,17 @@ Each project has a dedicated detail page showing:
 - Links to live demo and GitHub repository (if provided)
 
 ### Managing Projects
-Access the project management interface by clicking "Manage Projects" in the navigation:
+Access the project management interface by clicking "Manage Projects" in the navigation. The admin interface is password-protected to prevent unauthorized access.
 
+#### Authentication
+- **Default Password**: `admin123`
+- **Login**: Navigate to `/admin` or click "Manage Projects" to be prompted for the password
+- **Logout**: Click the "Logout" button in the admin interface to end your session
+- **Session Persistence**: Your login is saved in the browser until you logout
+
+**Security Note**: This is a client-side authentication system suitable for personal portfolios. The password is checked client-side and stored in the source code. For production applications with sensitive data, implement proper server-side authentication.
+
+#### Admin Features
 1. **Add New Project**: Click "+ Add New Project" and fill in the form with:
    - Title and description
    - Icon (emoji)
@@ -106,6 +119,19 @@ Access the project management interface by clicking "Manage Projects" in the nav
 All project data is stored in the browser's localStorage, so your changes persist across sessions. The initial data comes from `src/data/projects.json`.
 
 ## Customization
+
+### Changing the Admin Password
+To change the admin password, edit the `ADMIN_PASSWORD` constant in `src/context/AuthContext.jsx`:
+
+```javascript
+// Admin password - in production, this should be an environment variable
+const ADMIN_PASSWORD = 'your-secure-password'
+```
+
+For better security, consider using environment variables:
+1. Create a `.env` file in the root directory
+2. Add `VITE_ADMIN_PASSWORD=your-password`
+3. Update AuthContext.jsx to use `import.meta.env.VITE_ADMIN_PASSWORD`
 
 ### Adding Initial Projects
 Edit `src/data/projects.json` to change the default projects that appear on first load.
