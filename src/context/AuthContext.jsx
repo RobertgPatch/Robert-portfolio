@@ -1,22 +1,25 @@
-import { createContext, useState, useContext, useEffect } from 'react'
+import { createContext, useState, useContext } from 'react'
 
 const AuthContext = createContext()
 
 // Admin password - in production, this should be an environment variable
 const ADMIN_PASSWORD = 'admin123'
 
-export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
+// eslint-disable-next-line react-refresh/only-export-components
+export const useAuth = () => {
+  const context = useContext(AuthContext)
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider')
+  }
+  return context
+}
 
-  useEffect(() => {
-    // Check if user is already authenticated (from localStorage)
+export const AuthProvider = ({ children }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    // Initialize state from localStorage
     const authStatus = localStorage.getItem('portfolio-auth')
-    if (authStatus === 'true') {
-      setIsAuthenticated(true)
-    }
-    setIsLoading(false)
-  }, [])
+    return authStatus === 'true'
+  })
 
   const login = (password) => {
     if (password === ADMIN_PASSWORD) {
@@ -33,16 +36,8 @@ export const AuthProvider = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, isLoading, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
       {children}
     </AuthContext.Provider>
   )
-}
-
-export const useAuth = () => {
-  const context = useContext(AuthContext)
-  if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider')
-  }
-  return context
 }
