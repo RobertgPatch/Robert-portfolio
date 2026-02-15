@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useProjects } from '../context/ProjectsContext'
 import { useAuth } from '../context/AuthContext'
 import './Admin.css'
@@ -307,17 +307,19 @@ function Admin() {
           projects.map((project) => (
             <div key={project.id} className="project-item">
               <div className="project-item-header">
-                <div className="project-item-info">
-                  <span className="project-item-icon">{project.icon}</span>
-                  <div>
-                    <h3>{project.title}</h3>
-                    <p className="project-item-desc">{project.description}</p>
-                    <div className="project-item-meta">
-                      <span className={`status-badge ${project.status}`}>{project.status}</span>
-                      {project.featured && <span className="featured-badge">Featured</span>}
+                <Link to={`/project/${project.id}`} className="project-item-link">
+                  <div className="project-item-info">
+                    <span className="project-item-icon">{project.icon}</span>
+                    <div>
+                      <h3>{project.title}</h3>
+                      <p className="project-item-desc">{project.description}</p>
+                      <div className="project-item-meta">
+                        <span className={`status-badge ${project.status}`}>{project.status}</span>
+                        {project.featured && <span className="featured-badge">Featured</span>}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
                 {isAuthenticated && (
                   <div className="project-item-actions">
                     <button className="btn-icon" onClick={() => handleEdit(project)}>✏️</button>
