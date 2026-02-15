@@ -1,8 +1,10 @@
 import { Link, useLocation } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 import './Navigation.css'
 
 function Navigation() {
   const location = useLocation()
+  const { isAuthenticated } = useAuth()
 
   return (
     <nav className="navigation">
@@ -21,7 +23,7 @@ function Navigation() {
             to="/admin" 
             className={`nav-link ${location.pathname === '/admin' ? 'active' : ''}`}
           >
-            Manage Projects
+            {isAuthenticated ? 'Manage Projects' : 'View Projects'}
           </Link>
         </div>
       </div>

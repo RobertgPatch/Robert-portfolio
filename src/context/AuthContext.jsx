@@ -2,8 +2,10 @@ import { createContext, useState, useContext } from 'react'
 
 const AuthContext = createContext()
 
-// Admin password - in production, this should be an environment variable
-const ADMIN_PASSWORD = 'admin123'
+// Admin password - uses environment variable if available, falls back to default
+// IMPORTANT: This is CLIENT-SIDE authentication only, suitable for personal portfolios
+// For production apps with sensitive data, implement proper server-side authentication
+const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || 'admin123'
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => {

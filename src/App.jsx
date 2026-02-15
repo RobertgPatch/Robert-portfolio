@@ -21,14 +21,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/project/:id" element={<ProjectDetail />} />
                 <Route path="/login" element={<Login />} />
-                <Route 
-                  path="/admin" 
-                  element={
-                    <ProtectedRoute>
-                      <Admin />
-                    </ProtectedRoute>
-                  } 
-                />
+                <Route path="/admin" element={<Admin />} />
               </Routes>
             </div>
           </div>

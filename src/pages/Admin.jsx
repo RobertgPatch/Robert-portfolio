@@ -6,7 +6,7 @@ import './Admin.css'
 
 function Admin() {
   const { projects, addProject, updateProject, deleteProject } = useProjects()
-  const { logout } = useAuth()
+  const { isAuthenticated, logout } = useAuth()
   const navigate = useNavigate()
   const [isAdding, setIsAdding] = useState(false)
   const [editingId, setEditingId] = useState(null)
@@ -113,21 +113,33 @@ function Admin() {
     <div className="admin">
       <div className="admin-header">
         <div>
-          <h1>Manage Projects</h1>
-          <p className="admin-description">Add, edit, or remove projects from your portfolio</p>
+          <h1>{isAuthenticated ? 'Manage Projects' : 'Projects'}</h1>
+          <p className="admin-description">
+            {isAuthenticated 
+              ? 'Add, edit, or remove projects from your portfolio' 
+              : 'View all portfolio projects (read-only)'}
+          </p>
         </div>
-        <button className="btn btn-logout" onClick={handleLogout}>
-          Logout
-        </button>
+        <div className="admin-header-actions">
+          {isAuthenticated ? (
+            <button className="btn btn-logout" onClick={handleLogout}>
+              Logout
+            </button>
+          ) : (
+            <button className="btn btn-primary" onClick={() => navigate('/login')}>
+              Login to Edit
+            </button>
+          )}
+        </div>
       </div>
 
-      {!isAdding && (
+      {isAuthenticated && !isAdding && (
         <button className="add-project-btn" onClick={() => setIsAdding(true)}>
           + Add New Project
         </button>
       )}
 
-      {isAdding && (
+      {isAuthenticated && isAdding && (
         <div className="project-form-container">
           <h2>{editingId ? 'Edit Project' : 'Add New Project'}</h2>
           <form onSubmit={handleSubmit} className="project-form">
@@ -302,10 +314,12 @@ function Admin() {
                     </div>
                   </div>
                 </div>
-                <div className="project-item-actions">
-                  <button className="btn-icon" onClick={() => handleEdit(project)}>✏️</button>
-                  <button className="btn-icon" onClick={() => handleDelete(project.id)}>🗑️</button>
-                </div>
+                {isAuthenticated && (
+                  <div className="project-item-actions">
+                    <button className="btn-icon" onClick={() => handleEdit(project)}>✏️</button>
+                    <button className="btn-icon" onClick={() => handleDelete(project.id)}>🗑️</button>
+                  </div>
+                )}
               </div>
             </div>
           ))
