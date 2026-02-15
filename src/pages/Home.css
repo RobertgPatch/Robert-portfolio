@@ -75,6 +75,101 @@
   margin-bottom: 3rem;
 }
 
+/* Skills Section */
+.skills-section {
+  margin-bottom: 4rem;
+}
+
+.skills-intro {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin-bottom: 2rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-category {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.skill-category-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Resume Section */
+.resume-section {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 3rem;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.resume-section .section-title::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.resume-content p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+.resume-download-btn {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.resume-download-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
 .about-section {
   background: var(--card-bg);
   border: 1px solid var(--border);
@@ -138,6 +233,22 @@
   }
 
   .about-content p {
+    font-size: 1rem;
+  }
+
+  .skills-intro {
+    font-size: 1rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-section {
+    padding: 2rem;
+  }
+
+  .resume-content p {
     font-size: 1rem;
   }
 }
