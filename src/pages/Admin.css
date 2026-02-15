@@ -234,6 +234,13 @@
   gap: 1rem;
 }
 
+.project-item-link {
+  display: flex;
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+}
+
 .project-item-info {
   display: flex;
   gap: 1rem;
