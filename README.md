@@ -95,7 +95,7 @@ Access the project management interface by clicking "Manage Projects" in the nav
 
 #### Authentication
 - **Default Password**: `admin123`
-- **Login**: Navigate to `/admin` (viewable by all) and click "Login to Edit" button to access edit controls
+- **Login**: Click "View Projects" in the navigation menu or navigate directly to `/admin` (viewable by all) and click the "Login to Edit" button to access edit controls
 - **Logout**: Click the "Logout" button in the admin interface to end your session
 - **Session Persistence**: Your login is saved in the browser until you logout
 - **Read-Only Access**: Non-authenticated users can view all projects in the admin page but cannot add, edit, or delete projects

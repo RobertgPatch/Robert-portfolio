@@ -133,164 +133,168 @@ function Admin() {
         </div>
       </div>
 
-      {isAuthenticated && !isAdding && (
-        <button className="add-project-btn" onClick={() => setIsAdding(true)}>
-          + Add New Project
-        </button>
-      )}
+      {isAuthenticated && (
+        <>
+          {!isAdding && (
+            <button className="add-project-btn" onClick={() => setIsAdding(true)}>
+              + Add New Project
+            </button>
+          )}
 
-      {isAuthenticated && isAdding && (
-        <div className="project-form-container">
-          <h2>{editingId ? 'Edit Project' : 'Add New Project'}</h2>
-          <form onSubmit={handleSubmit} className="project-form">
-            <div className="form-grid">
-              <div className="form-group">
-                <label>Title *</label>
-                <input
-                  type="text"
-                  value={formData.title}
-                  onChange={(e) => setFormData({...formData, title: e.target.value})}
-                  required
-                />
-              </div>
+          {isAdding && (
+            <div className="project-form-container">
+              <h2>{editingId ? 'Edit Project' : 'Add New Project'}</h2>
+              <form onSubmit={handleSubmit} className="project-form">
+                <div className="form-grid">
+                  <div className="form-group">
+                    <label>Title *</label>
+                    <input
+                      type="text"
+                      value={formData.title}
+                      onChange={(e) => setFormData({...formData, title: e.target.value})}
+                      required
+                    />
+                  </div>
 
-              <div className="form-group">
-                <label>Icon (Emoji)</label>
-                <input
-                  type="text"
-                  value={formData.icon}
-                  onChange={(e) => setFormData({...formData, icon: e.target.value})}
-                  placeholder="📦"
-                />
-              </div>
+                  <div className="form-group">
+                    <label>Icon (Emoji)</label>
+                    <input
+                      type="text"
+                      value={formData.icon}
+                      onChange={(e) => setFormData({...formData, icon: e.target.value})}
+                      placeholder="📦"
+                    />
+                  </div>
 
-              <div className="form-group full-width">
-                <label>Description *</label>
-                <textarea
-                  value={formData.description}
-                  onChange={(e) => setFormData({...formData, description: e.target.value})}
-                  rows="3"
-                  required
-                />
-              </div>
+                  <div className="form-group full-width">
+                    <label>Description *</label>
+                    <textarea
+                      value={formData.description}
+                      onChange={(e) => setFormData({...formData, description: e.target.value})}
+                      rows="3"
+                      required
+                    />
+                  </div>
 
-              <div className="form-group">
-                <label>Tags (comma-separated)</label>
-                <input
-                  type="text"
-                  value={formData.tags}
-                  onChange={(e) => setFormData({...formData, tags: e.target.value})}
-                  placeholder="React, Node.js, API"
-                />
-              </div>
+                  <div className="form-group">
+                    <label>Tags (comma-separated)</label>
+                    <input
+                      type="text"
+                      value={formData.tags}
+                      onChange={(e) => setFormData({...formData, tags: e.target.value})}
+                      placeholder="React, Node.js, API"
+                    />
+                  </div>
 
-              <div className="form-group">
-                <label>Status</label>
-                <select
-                  value={formData.status}
-                  onChange={(e) => setFormData({...formData, status: e.target.value})}
-                >
-                  <option value="in-progress">In Progress</option>
-                  <option value="completed">Completed</option>
-                  <option value="archived">Archived</option>
-                </select>
-              </div>
+                  <div className="form-group">
+                    <label>Status</label>
+                    <select
+                      value={formData.status}
+                      onChange={(e) => setFormData({...formData, status: e.target.value})}
+                    >
+                      <option value="in-progress">In Progress</option>
+                      <option value="completed">Completed</option>
+                      <option value="archived">Archived</option>
+                    </select>
+                  </div>
 
-              <div className="form-group">
-                <label>Live URL</label>
-                <input
-                  type="url"
-                  value={formData.liveUrl}
-                  onChange={(e) => setFormData({...formData, liveUrl: e.target.value})}
-                  placeholder="https://example.com"
-                />
-              </div>
+                  <div className="form-group">
+                    <label>Live URL</label>
+                    <input
+                      type="url"
+                      value={formData.liveUrl}
+                      onChange={(e) => setFormData({...formData, liveUrl: e.target.value})}
+                      placeholder="https://example.com"
+                    />
+                  </div>
 
-              <div className="form-group">
-                <label>GitHub URL</label>
-                <input
-                  type="url"
-                  value={formData.githubUrl}
-                  onChange={(e) => setFormData({...formData, githubUrl: e.target.value})}
-                  placeholder="https://github.com/..."
-                />
-              </div>
+                  <div className="form-group">
+                    <label>GitHub URL</label>
+                    <input
+                      type="url"
+                      value={formData.githubUrl}
+                      onChange={(e) => setFormData({...formData, githubUrl: e.target.value})}
+                      placeholder="https://github.com/..."
+                    />
+                  </div>
 
-              <div className="form-group full-width">
-                <label className="checkbox-label">
-                  <input
-                    type="checkbox"
-                    checked={formData.featured}
-                    onChange={(e) => setFormData({...formData, featured: e.target.checked})}
-                  />
-                  Featured Project
-                </label>
-              </div>
+                  <div className="form-group full-width">
+                    <label className="checkbox-label">
+                      <input
+                        type="checkbox"
+                        checked={formData.featured}
+                        onChange={(e) => setFormData({...formData, featured: e.target.checked})}
+                      />
+                      Featured Project
+                    </label>
+                  </div>
 
-              <div className="form-group full-width">
-                <label>Overview *</label>
-                <textarea
-                  value={formData.details.overview}
-                  onChange={(e) => setFormData({
-                    ...formData, 
-                    details: {...formData.details, overview: e.target.value}
-                  })}
-                  rows="4"
-                  required
-                />
-              </div>
+                  <div className="form-group full-width">
+                    <label>Overview *</label>
+                    <textarea
+                      value={formData.details.overview}
+                      onChange={(e) => setFormData({
+                        ...formData, 
+                        details: {...formData.details, overview: e.target.value}
+                      })}
+                      rows="4"
+                      required
+                    />
+                  </div>
 
-              <div className="form-group full-width">
-                <label>Key Features (one per line) *</label>
-                <textarea
-                  value={formData.details.keyFeatures}
-                  onChange={(e) => setFormData({
-                    ...formData, 
-                    details: {...formData.details, keyFeatures: e.target.value}
-                  })}
-                  rows="5"
-                  placeholder="Feature 1&#10;Feature 2&#10;Feature 3"
-                  required
-                />
-              </div>
+                  <div className="form-group full-width">
+                    <label>Key Features (one per line) *</label>
+                    <textarea
+                      value={formData.details.keyFeatures}
+                      onChange={(e) => setFormData({
+                        ...formData, 
+                        details: {...formData.details, keyFeatures: e.target.value}
+                      })}
+                      rows="5"
+                      placeholder="Feature 1&#10;Feature 2&#10;Feature 3"
+                      required
+                    />
+                  </div>
 
-              <div className="form-group full-width">
-                <label>Technologies (comma-separated) *</label>
-                <input
-                  type="text"
-                  value={formData.details.technologies}
-                  onChange={(e) => setFormData({
-                    ...formData, 
-                    details: {...formData.details, technologies: e.target.value}
-                  })}
-                  placeholder="React, Node.js, MongoDB"
-                  required
-                />
-              </div>
+                  <div className="form-group full-width">
+                    <label>Technologies (comma-separated) *</label>
+                    <input
+                      type="text"
+                      value={formData.details.technologies}
+                      onChange={(e) => setFormData({
+                        ...formData, 
+                        details: {...formData.details, technologies: e.target.value}
+                      })}
+                      placeholder="React, Node.js, MongoDB"
+                      required
+                    />
+                  </div>
 
-              <div className="form-group full-width">
-                <label>Challenges & Solutions</label>
-                <textarea
-                  value={formData.details.challenges}
-                  onChange={(e) => setFormData({
-                    ...formData, 
-                    details: {...formData.details, challenges: e.target.value}
-                  })}
-                  rows="3"
-                />
-              </div>
+                  <div className="form-group full-width">
+                    <label>Challenges & Solutions</label>
+                    <textarea
+                      value={formData.details.challenges}
+                      onChange={(e) => setFormData({
+                        ...formData, 
+                        details: {...formData.details, challenges: e.target.value}
+                      })}
+                      rows="3"
+                    />
+                  </div>
+                </div>
+
+                <div className="form-actions">
+                  <button type="submit" className="btn btn-primary">
+                    {editingId ? 'Update Project' : 'Add Project'}
+                  </button>
+                  <button type="button" className="btn btn-secondary" onClick={resetForm}>
+                    Cancel
+                  </button>
+                </div>
+              </form>
             </div>
-
-            <div className="form-actions">
-              <button type="submit" className="btn btn-primary">
-                {editingId ? 'Update Project' : 'Add Project'}
-              </button>
-              <button type="button" className="btn btn-secondary" onClick={resetForm}>
-                Cancel
-              </button>
-            </div>
-          </form>
-        </div>
+          )}
+        </>
       )}
 
       <div className="projects-list">
