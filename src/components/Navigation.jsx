@@ -1,10 +1,12 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { useTheme } from '../context/ThemeContext'
 import './Navigation.css'
 
 function Navigation() {
   const location = useLocation()
   const { isAuthenticated } = useAuth()
+  const { isDarkMode, toggleTheme } = useTheme()
 
   return (
     <nav className="navigation">
@@ -25,6 +27,14 @@ function Navigation() {
           >
             {isAuthenticated ? 'Manage Projects' : 'View Projects'}
           </Link>
+          <button 
+            className="theme-toggle" 
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            {isDarkMode ? '☀️' : '🌙'}
+          </button>
         </div>
       </div>
     </nav>
