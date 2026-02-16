@@ -37,6 +37,28 @@
   align-items: center;
 }
 
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: transform 0.3s, background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  background-color: var(--background-alt);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
 .nav-link {
   color: var(--text-secondary);
   text-decoration: none;
