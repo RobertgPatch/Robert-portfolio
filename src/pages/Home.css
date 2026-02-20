@@ -46,6 +46,7 @@
 
 .hero-subtitle {
   font-size: 1.25rem;
+  color: var(--primary);
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -150,6 +151,7 @@
 .skill-category-title {
   font-size: 1rem;
   font-weight: 700;
+  color: var(--primary);
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
