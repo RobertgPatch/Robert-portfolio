@@ -1,27 +1,41 @@
 :root {
-  --primary: #2563eb;
-  --primary-dark: #1d4ed8;
-  --primary-light: #eff6ff;
-  --background: #ffffff;
-  --background-alt: #f8fafc;
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --primary-light: #eef2ff;
+  --accent: #c084fc;
+  --accent-glow: rgba(99, 102, 241, 0.15);
+  --gradient-primary: linear-gradient(135deg, #6366f1, #a855f7);
+  --gradient-subtle: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.08));
+  --background: #fafbff;
+  --background-alt: #f0f2f8;
   --card-bg: #ffffff;
-  --text: #1e293b;
+  --text: #0f172a;
   --text-secondary: #64748b;
   --border: #e2e8f0;
-  --hover: #2563eb;
+  --hover: #6366f1;
+  --nav-bg: rgba(255, 255, 255, 0.8);
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --card-shadow-hover: 0 20px 40px rgba(99, 102, 241, 0.1), 0 8px 16px rgba(0, 0, 0, 0.06);
 }
 
 [data-theme="dark"] {
-  --primary: #3b82f6;
-  --primary-dark: #60a5fa;
-  --primary-light: #1e3a8a;
-  --background: #0f172a;
-  --background-alt: #1e293b;
-  --card-bg: #1e293b;
+  --primary: #818cf8;
+  --primary-dark: #a5b4fc;
+  --primary-light: rgba(99, 102, 241, 0.15);
+  --accent: #c084fc;
+  --accent-glow: rgba(129, 140, 248, 0.12);
+  --gradient-primary: linear-gradient(135deg, #818cf8, #c084fc);
+  --gradient-subtle: linear-gradient(135deg, rgba(129, 140, 248, 0.08), rgba(192, 132, 252, 0.06));
+  --background: #09090f;
+  --background-alt: #12121c;
+  --card-bg: #16161f;
   --text: #f1f5f9;
   --text-secondary: #94a3b8;
-  --border: #334155;
-  --hover: #60a5fa;
+  --border: #1e1e2e;
+  --hover: #a5b4fc;
+  --nav-bg: rgba(9, 9, 15, 0.75);
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 20px 40px rgba(99, 102, 241, 0.08), 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -31,8 +45,7 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -49,7 +62,7 @@ body {
 .content {
   flex: 1;
   padding: 2rem;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   width: 100%;
 }
